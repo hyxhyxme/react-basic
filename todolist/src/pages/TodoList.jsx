@@ -3,7 +3,7 @@ import List from './List'
 import Form from './Form'
 export class TodoList extends Component {
     state = {
-        keywords : ''
+        keywords : 'abc'
     }
     handleReceiveKeywords(keywords){
         this.setState({

@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types'
 class List extends Component {
+  /*   static defaultProps = {//设置默认值，当父组件没有传过来keywords时用默认值
+        keywords : 'abc'
+    } */
+
+    static propTypes = {
+       /*  keywords : PropTypes.string.isRequired//传过来的keywords必须存在且必须是字符串 */
+       /* keywords : PropTypes.oneOf(['abc','def'])//传过来的值必须是abc或者def */
+      /*  keywords : function(props,propName,component){//传过来的keywords必须是abc
+           if(props.keywords !== 'abc'){
+               return new Error()
+           }
+       } */
+    }
     state = {
         list : ['task1', 'task2']
     }
 
-    UNSAFE_componentWillReceiveProps(props){
+    UNSAFE_componentWillReceiveProps(props){//监听props的变化，是个钩子
        this.setState({
            list:[
                ...this.state.list,
