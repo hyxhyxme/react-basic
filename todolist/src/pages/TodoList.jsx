@@ -3,12 +3,24 @@ import List from './List'
 import Form from './Form'
 export class TodoList extends Component {
     state = {
-        keywords : 'abc'
+        keywords : 'abc',
+        initValue :'-aba',
+        
     }
-    handleReceiveKeywords(keywords){
-        this.setState({
-            keywords
+    async handleReceiveKeywords(keywords){
+        await this.setState({
+            keywords,
+            initValue:'----'
         })
+        console.log(this.state.initValue);//-------
+
+        /* this.setState({
+            keywords,
+            initValue:'----'
+        })
+        console.log(this.state.initValue);//-aba */
+        //说明状态不会立即改变，setState是个异步操作        
+        
     }
     render() {
         return (

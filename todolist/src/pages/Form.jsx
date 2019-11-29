@@ -12,7 +12,9 @@ class Form extends Component {
     handleKeyUp(e){
         if(e.keyCode === 13){
             this.props.onReceiveKeywords(this.state.keywords)
-            this.state.keywords = ''
+            this.setState({
+                keywords : ''
+            })
         }
     }
     render(){
