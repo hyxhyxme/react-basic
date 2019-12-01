@@ -12,29 +12,27 @@ export class Parent extends Component {
         return (
             <div>
                 {this.state.title}
-                <Child toyou={this.state.toyou} ></Child>
+                <Child  toyou={this.state.toyou} ></Child>
                 <button onClick={this.handleClick.bind(this)}>点我改变父组件title值</button>
                 <button onClick={this.destoryClick.bind(this)}>销毁</button>
             </div>
         )
     }
-    UNSAFE_componentWillMount(){
-        console.log('parentswillmount')
-    }
+  
     componentDidMount(){
         console.log('parentsdidmount');
     }
-    UNSAFE_componentWillUpdate(){
-        console.log('p-cwillupdate');   
-    }
-    shouldComponentUpdate(){
-        console.log('pshouldupdate');
-        
-        return true
+    static getDerivedStateFromProps(){
+        console.log('p-derived');
+        return null
     }
     componentDidUpdate(){
         console.log('p-didupdate');
         
+    }
+    getSnapshotBeforeUpdate(){
+        console.log('p-snap');
+        return false 
     }
     handleClick(){
         this.setState({

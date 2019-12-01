@@ -32,6 +32,8 @@ class List extends Component {
     handleDel(index){
         this.state.list.splice(index,1)
         this.setState({})
+        console.log(this);
+        
     }
    /*  handleShowList = () =>{
         this.setState((prevState)=>{

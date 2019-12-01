@@ -7,9 +7,7 @@ export class Child extends Component {
     state = {
         childTitle : 'children'
     }
-    UNSAFE_componentWillReceiveProps(){
-        console.log('c-receiveProps');
-    }
+   
     render() {
         console.log('childrender');
         return (
@@ -19,15 +17,19 @@ export class Child extends Component {
             </div>
         )
     }
-    UNSAFE_componentWillMount(){
-        console.log('childswillmount')
-    }
+   
     componentDidMount(){
         console.log('childdidmount');
     }
-    UNSAFE_componentWillUpdate(){
-        console.log('c-willUpdate');
-        
+
+    static getDerivedStateFromProps(){
+        console.log('c-getderived');
+        return false
+    }
+    getSnapshotBeforeUpdate(){
+        console.log('c-snap');
+     
+        return false
     }
     componentWillUnmount(){
         console.log('c - unmount');
