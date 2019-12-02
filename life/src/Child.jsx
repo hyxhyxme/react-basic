@@ -4,22 +4,34 @@ export class Child extends Component {
     /* constructor(props){
         super(props)
     } */
+    constructor(){
+        super()
+        this.child  = React.createRef();
+        
+    }
     state = {
         childTitle : 'children'
     }
-   
+    handleClick(){
+        this.props.onHandle('oooo')
+    }
     render() {
         console.log('childrender');
+        let { toyou } = this.props
+        console.log(toyou);
         return (
             <div>
                 {this.state.childTitle}
-                <span>{this.props.toyou}</span>
+                <span ref={this.child}>{this.props.toyou}</span>
+                <button  onClick={this.handleClick.bind(this)}>sdfjsdfa</button>
             </div>
         )
     }
    
     componentDidMount(){
         console.log('childdidmount');
+        console.log(this.child.current);
+        
     }
 
     static getDerivedStateFromProps(){
@@ -28,7 +40,7 @@ export class Child extends Component {
     }
     getSnapshotBeforeUpdate(){
         console.log('c-snap');
-     
+        
         return false
     }
     componentWillUnmount(){

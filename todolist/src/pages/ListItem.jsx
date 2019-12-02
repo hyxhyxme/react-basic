@@ -5,7 +5,7 @@ export class ListItem extends Component {
         return (//非可控组件，通过属性来获取值，没有状态
             <li>
                 {this.props.value}
-                <button onClick={this.props.onItemClick.bind(this,this.props.index)}>X</button>
+                <button onClick={this.props.onItemClick}>X</button>
             </li>
         )
     }
